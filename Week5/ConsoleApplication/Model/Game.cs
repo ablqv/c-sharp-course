@@ -11,7 +11,7 @@ namespace ConsoleApplication.Model {
 		public static Wall wall;
 		public static bool alive;
 		public static Timer timer;
-		public static Thread snakeMover;
+		public static Thread snakeMover, timerThread;
 		public static int totalScore;
 		public static Panel panel;
 
@@ -24,7 +24,9 @@ namespace ConsoleApplication.Model {
 			food = new Food(ConsoleColor.Green, new List<Point>{Food.getRandLocation()}, '$');
 			wall = new Wall(ConsoleColor.Red, new List<Point>(), '#');
 			timer = new Timer(2, 0);
-			timer.Start();
+
+			timerThread = new Thread(timer.run);
+			timerThread.Start();
 			panel = new Panel(1, 2);
 			draw();
 			snakeMover = new Thread(snake.move);
@@ -57,10 +59,13 @@ namespace ConsoleApplication.Model {
 			snake = (Snake) new Snake().load();
 			wall = (Wall) new Wall().load();
 			food = (Food) new Food().load();
-			timer.kill();
+			Console.Clear();
+			Console.WriteLine("Heyyo");
+			timer.kill(timerThread);
 			timer = (Timer) new Timer().load();
 			panel = (Panel) new Panel().load();
-			timer.Start();
+			timerThread = new Thread(timer.run);
+			timerThread.Start();
 			snakeMover = new Thread(snake.move);
 			snakeMover.Start();
 		}

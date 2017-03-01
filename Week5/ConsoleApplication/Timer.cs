@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Remoting.Channels;
 using System.Threading;
 using System.Xml.Serialization;
 using ConsoleApplication.Model;
@@ -6,13 +8,6 @@ using ConsoleApplication.Model;
 namespace ConsoleApplication {
 	[Serializable]
 	public class Timer : SerializableObject {
-		private Thread thread;
-
-		public Thread Thread {
-			get { return thread; }
-			set { thread = value; }
-		}
-
 		public int Minute { get; set; }
 		public int Second { get; set; }
 		public bool Alive { get; set; }
@@ -20,18 +15,19 @@ namespace ConsoleApplication {
 		public Timer(int minute, int second) {
 			Minute = minute;
 			Second = second;
-			thread = new Thread(run);
 			Alive = true;
 		}
 
 		public Timer() { }
 
-		public void kill() {
+		public void kill(Thread thread) {
+			Console.WriteLine("Huiyo");
 			Alive = false;
+			Console.WriteLine("Vawe huiyo");
 			thread.Abort();
 		}
 
-		private void run(object obj) {
+		public void run(object obj) {
 			while (Alive) {
 				--Second;
 				if (Second < 0) {
@@ -52,7 +48,7 @@ namespace ConsoleApplication {
 			Console.WriteLine("Remaining time: {0}:{1}", Minute, Second);
 		}
 
-		public void Start() {
+		public void Start(Thread thread) {
 			thread = new Thread(run);
 			thread.Start();
 		}

@@ -35,7 +35,7 @@ namespace ConsoleApplication {
 						break;
 				}
 			}
-			Game.timer.kill();
+			Game.timer.kill(Game.timerThread);
 		}
 	}
 }

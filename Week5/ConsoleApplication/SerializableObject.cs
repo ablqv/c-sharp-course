@@ -6,9 +6,8 @@ namespace ConsoleApplication {
 		public void save() {
 			var type = GetType();
 
-			XmlAttributeOverrides overrides = new XmlAttributeOverrides();
-			XmlAttributes attribs = new XmlAttributes();
-			attribs.XmlIgnore = true;
+			var overrides = new XmlAttributeOverrides();
+			var attribs = new XmlAttributes {XmlIgnore = true};
 			attribs.XmlElements.Add(new XmlElementAttribute("thread"));
 			overrides.Add(type, "thread", attribs);
 

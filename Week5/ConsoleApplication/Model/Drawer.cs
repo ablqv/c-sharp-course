@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace ConsoleApplication.Model {
 	[Serializable]
-	public class Drawer {
+	public class Drawer : SerializableObject {
 		public ConsoleColor color { get; set; }
 
 		public List<Point> body { get; set; } = new List<Point>();

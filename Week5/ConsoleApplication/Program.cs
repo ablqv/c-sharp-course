@@ -4,22 +4,25 @@ using ConsoleApplication.Model;
 namespace ConsoleApplication {
 	internal class Program {
 		public static void Main(string[] args) {
+//			Timer timer = new Timer(0, 10);
+//			timer.Start();
+//			return;
 			Game.init();
+			int cnt = 0;
 			while (Game.alive) {
-				Game.draw();
 				var button = Console.ReadKey();
 				switch (button.Key) {
 					case ConsoleKey.UpArrow:
-						Game.snake.move(0, -1);
+						Game.snake.setDxDy(0, -1);
 						break;
 					case ConsoleKey.DownArrow:
-						Game.snake.move(0, 1);
+						Game.snake.setDxDy(0, 1);
 						break;
 					case ConsoleKey.RightArrow:
-						Game.snake.move(1, 0);
+						Game.snake.setDxDy(1, 0);
 						break;
 					case ConsoleKey.LeftArrow:
-						Game.snake.move(-1, 0);
+						Game.snake.setDxDy(-1, 0);
 						break;
 					case ConsoleKey.Escape:
 						Game.alive = false;
@@ -32,6 +35,7 @@ namespace ConsoleApplication {
 						break;
 				}
 			}
+			Game.timer.kill();
 		}
 	}
 }

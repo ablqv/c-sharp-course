@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq.Expressions;
+using System.Data;
 using System.Threading;
-using System.Xml.Schema;
-using System.Xml.Serialization;
 
 namespace ConsoleApplication.Model {
 	[Serializable]
@@ -13,15 +10,25 @@ namespace ConsoleApplication.Model {
 		public static Food food;
 		public static Wall wall;
 		public static bool alive;
+		public static Timer timer;
+		public static Thread snakeMover;
+		public static int totalScore;
+		public static Panel panel;
 
 		public static void init() {
 			Console.CursorVisible = false;
-			Console.SetWindowSize(70, 35);
+			Console.SetWindowSize(80, 40);
 
+			alive = true;
 			snake = new Snake(ConsoleColor.Yellow, new List<Point>(), 'o');
 			food = new Food(ConsoleColor.Green, new List<Point>{Food.getRandLocation()}, '$');
 			wall = new Wall(ConsoleColor.Red, new List<Point>(), '#');
-			alive = true;
+			timer = new Timer(2, 0);
+			timer.Start();
+			panel = new Panel(1, 2);
+			draw();
+			snakeMover = new Thread(snake.move);
+			snakeMover.Start();
 		}
 
 		public static void draw() {
@@ -29,23 +36,37 @@ namespace ConsoleApplication.Model {
 			snake.draw();
 			food.draw();
 			wall.draw();
+			timer.draw();
+			panel.draw();
 		}
 
 		public static void saveGame() {
 			doSerialization();
-			alive = false;
 		}
 
 		private static void doSerialization() {
 			snake.save();
 			wall.save();
 			food.save();
+			timer.save();
+			panel.save();
 		}
 
 		public static void loadGame() {
+			snakeMover.Abort();
 			snake = (Snake) new Snake().load();
 			wall = (Wall) new Wall().load();
 			food = (Food) new Food().load();
+			timer.kill();
+			timer = (Timer) new Timer().load();
+			panel = (Panel) new Panel().load();
+			timer.Start();
+			snakeMover = new Thread(snake.move);
+			snakeMover.Start();
+		}
+
+		public static void onTimerFinished() {
+			alive = false;
 		}
 	}
 }

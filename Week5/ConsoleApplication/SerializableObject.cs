@@ -6,12 +6,7 @@ namespace ConsoleApplication {
 		public void save() {
 			var type = GetType();
 
-			var overrides = new XmlAttributeOverrides();
-			var attribs = new XmlAttributes {XmlIgnore = true};
-			attribs.XmlElements.Add(new XmlElementAttribute("thread"));
-			overrides.Add(type, "thread", attribs);
-
-			var serializer = new XmlSerializer(type, overrides);
+			var serializer = new XmlSerializer(type);
 			var fileStream = new FileStream($"{type.Name}.xml", FileMode.Create);
 			var streamWriter = new StreamWriter(fileStream);
 

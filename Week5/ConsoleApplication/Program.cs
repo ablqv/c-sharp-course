@@ -4,9 +4,6 @@ using ConsoleApplication.Model;
 namespace ConsoleApplication {
 	internal class Program {
 		public static void Main(string[] args) {
-//			Timer timer = new Timer(0, 10);
-//			timer.Start();
-//			return;
 			Game.init();
 			int cnt = 0;
 			while (Game.alive) {

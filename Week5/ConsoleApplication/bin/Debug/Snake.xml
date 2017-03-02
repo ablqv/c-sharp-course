@@ -3,19 +3,27 @@
   <color>Yellow</color>
   <body>
     <Point>
-      <X>36</X>
-      <Y>23</Y>
+      <X>63</X>
+      <Y>29</Y>
     </Point>
     <Point>
-      <X>35</X>
-      <Y>23</Y>
+      <X>64</X>
+      <Y>29</Y>
     </Point>
     <Point>
-      <X>34</X>
-      <Y>23</Y>
+      <X>65</X>
+      <Y>29</Y>
+    </Point>
+    <Point>
+      <X>66</X>
+      <Y>29</Y>
+    </Point>
+    <Point>
+      <X>66</X>
+      <Y>30</Y>
     </Point>
   </body>
   <sign>111</sign>
-  <Dx>1</Dx>
+  <Dx>-1</Dx>
   <Dy>0</Dy>
 </Snake>

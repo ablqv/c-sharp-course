@@ -15,8 +15,11 @@ namespace ConsoleApplication {
 		public int Score { get; set; }
 
 		public void draw() {
+			Console.ForegroundColor = ConsoleColor.DarkGreen;
 			Console.SetCursorPosition(1, 36);
 			Console.WriteLine("Score: {0}", Score);
+
+			Console.ForegroundColor = ConsoleColor.DarkMagenta;
 			Console.SetCursorPosition(1, 37);
 			Console.WriteLine("Level: {0}", Level);
 		}

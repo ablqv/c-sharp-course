@@ -28,5 +28,9 @@ namespace ConsoleApplication.Model {
 		object ICloneable.Clone() {
 			return Clone();
 		}
+
+		public override string ToString() {
+			return X + " " + Y;
+		}
 	}
 }

@@ -55,14 +55,14 @@ namespace ConsoleApplication.Model {
 				else {
 					if (intersectsWithWall()) {
 						Game.alive = false;
-						Console.WriteLine("WHA1");
-						Thread.Sleep(5000);
+//						Console.WriteLine("WHA1");
+//						Thread.Sleep(5000);
 					}
 					else {
 						if (intersectsWithSelf()) {
 							Game.alive = false;
-							Console.WriteLine("WHA2");
-							Thread.Sleep(5000);
+//							Console.WriteLine("WHA2");
+//							Thread.Sleep(5000);
 						}
 					}
 				}
@@ -70,9 +70,10 @@ namespace ConsoleApplication.Model {
 					currentScore = 1;
 					Game.wall.loadLevel(++level);
 					Game.panel.Level = level;
+					// generateSnake();
 				}
 				Game.draw();
-				Thread.Sleep(300);
+				Thread.Sleep(200);
 			}
 		}
 
@@ -109,6 +110,9 @@ namespace ConsoleApplication.Model {
 			while (Game.wall != null && !intersectsWithWall(pt) && !intersectsWithWall(new Point(pt.X + 1, pt.Y)))
 				pt = new Point(new Random().Next(1, 68), new Random().Next(1, 34));
 			body = new List<Point> {pt, new Point(pt.X + 1, pt.Y)};
+			Console.SetCursorPosition(1, 38);
+			foreach (var e in body)
+				Console.WriteLine(e.ToString());
 		}
 
 		public void setDxDy(int ndx, int ndy) {

@@ -44,6 +44,7 @@ namespace ConsoleApplication {
 		}
 
 		public void draw() {
+			Console.ForegroundColor = ConsoleColor.DarkYellow;
 			Console.SetCursorPosition(1, 35);
 			Console.WriteLine("Remaining time: {0}:{1}", Minute, Second);
 		}

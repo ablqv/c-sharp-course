@@ -1,0 +1,9 @@
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.exe.config
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.exe
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.pdb
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.csprojResolveAssemblyReference.cache
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.Form1.resources
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.Properties.Resources.resources
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.csproj.GenerateResource.Cache
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.exe
+c:\users\aqali\documents\visual studio 2017\Projects\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.pdb

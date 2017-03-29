@@ -46,5 +46,30 @@ namespace WindowsFormsApplication
         {
             calculator.onComaClick();
         }
+
+        private void onMemoryButtonClick(object sender, EventArgs e)
+        {
+            calculator.onMemoryButtonClick(sender, e);
+        }
+
+        private void onPiButtonClick(object sender, EventArgs e)
+        {
+            calculator.onPiButtonClick();
+        }
+
+        private void onEButtonClick(object sender, EventArgs e)
+        {
+            calculator.onEButtonClick();
+        }
+
+        private void onTregonometricClick(object sender, EventArgs e)
+        {
+            calculator.onTregonometricClick(sender, e);
+        }
+
+        private void onPercentClick(object sender, EventArgs e)
+        {
+            calculator.onPercentClick();
+        }
     }
 }

@@ -9,9 +9,13 @@ namespace WindowsFormsApplication
         private double result, secondOperand;
         enum Operation
         {
-            Add, Substract, Divide, Multiply, Empty
+            Add, Substract, Divide, Multiply, Percent, Root, Power, Empty
         }
         Operation operation;
+        private double E = Math.E;
+        private double Pi = Math.PI;
+
+        public double inMemory { get; private set; }
 
         public Calculator() {
             Init();
@@ -36,7 +40,7 @@ namespace WindowsFormsApplication
         {
             if (textBox.Text == "0") textBox.Text = number;
             else
-            textBox.Text += number;
+                textBox.Text += number;
         }
         public void onOperationClick(string op)
         {
@@ -77,7 +81,84 @@ namespace WindowsFormsApplication
                     result = 1.0 / result;
                     textBox.Text = result.ToString();
                     break;
+                case "n!":
+                    double p = double.Parse(textBox.Text);
+                    if (Math.Abs(p - Math.Floor(p)) < 1e-9)
+                    {
+                        double res = 1;
+                        for (int i = 1; i <= p; ++i)
+                            res = res * i;
+                        textBox.Text = res.ToString();
+                    }
+                    break;
+                case "y root x":
+                    operation = Operation.Root;
+                    textBox.Text = "";
+                    break;
+                case "x^y":
+                    operation = Operation.Power;
+                    textBox.Text = "";
+                    break;
+                case "e^x":
+                    textBox.Text = Math.Pow(E, double.Parse(textBox.Text)).ToString();
+                    break;
             }
+        }
+
+        internal void onPercentClick()
+        {
+            textBox.Text = (result * double.Parse(textBox.Text) / 100.0).ToString();
+            onEqualClick();
+        }
+
+        internal void onTregonometricClick(object sender, EventArgs e)
+        {
+            String f = ((Button)sender).Text;
+            switch (f[0])
+            {
+                case 's':
+                    textBox.Text = Math.Sin(double.Parse(textBox.Text)).ToString();
+                    break;
+                case 'c':
+                    textBox.Text = Math.Cos(double.Parse(textBox.Text)).ToString();
+                    break;
+                case 't':
+                    textBox.Text = Math.Tan(double.Parse(textBox.Text)).ToString();
+                    break;
+            }
+        }
+
+        internal void onEButtonClick()
+        {
+            textBox.Text = E.ToString();
+        }
+
+        internal void onMemoryButtonClick(object sender, EventArgs e)
+        {
+            String text = ((Button)sender).Text.ToString();
+            switch (text)
+            {
+                case "MC":
+                    inMemory = 0;
+                    break;
+                case "MR":
+                    textBox.Text = inMemory.ToString();
+                    break;
+                case "M+":
+                    inMemory += double.Parse(textBox.Text.ToString());
+                    break;
+                case "M-":
+                    inMemory -= double.Parse(textBox.Text.ToString());
+                    break;
+                case "MS":
+                    inMemory = double.Parse(textBox.Text.ToString());
+                    break;
+            }
+        }
+
+        internal void onPiButtonClick()
+        {
+            textBox.Text = Pi.ToString();
         }
 
         internal void onClearClick(string text)
@@ -91,7 +172,8 @@ namespace WindowsFormsApplication
             else
             {
                 textBox.Text = "0";
-                Init();
+                if (text == "C")
+                    Init();
             }
         }
 
@@ -115,6 +197,17 @@ namespace WindowsFormsApplication
                     result /= secondOperand;
                     break;
                 case Operation.Multiply:
+                    result *= secondOperand;
+                    break;
+                case Operation.Root:
+                    if (secondOperand != 0)
+                        result = Math.Pow(result, 1.0 / secondOperand);
+                    break;
+                case Operation.Power:
+                    result = Math.Pow(result, secondOperand);
+                    break;
+                case Operation.Percent:
+                    secondOperand /= 100;
                     result *= secondOperand;
                     break;
             }

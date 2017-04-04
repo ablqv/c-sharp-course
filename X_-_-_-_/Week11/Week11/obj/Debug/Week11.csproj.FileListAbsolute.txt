@@ -1,0 +1,9 @@
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\bin\Debug\Week11.exe.config
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\bin\Debug\Week11.exe
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\bin\Debug\Week11.pdb
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.Form1.resources
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.Properties.Resources.resources
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.csproj.GenerateResource.Cache
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.exe
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.pdb
+C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.csprojResolveAssemblyReference.cache

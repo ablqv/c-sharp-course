@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
-using Timer = System.Threading.Timer;
 
 namespace Week11
 {
@@ -35,6 +24,11 @@ namespace Week11
         {
             _game.MoveObjects();
             Refresh();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            _game.ProcessKeyDown(e.KeyCode);
         }
     }
 }

@@ -7,3 +7,12 @@ C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Wee
 C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.exe
 C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.pdb
 C:\Users\aqali\Documents\Visual Studio 2017\Projects\Week11\Week11\obj\Debug\Week11.csprojResolveAssemblyReference.cache
+E:\github\c-sharp-course\Week11\Week11\bin\Debug\Week11.exe.config
+E:\github\c-sharp-course\Week11\Week11\bin\Debug\Week11.exe
+E:\github\c-sharp-course\Week11\Week11\bin\Debug\Week11.pdb
+E:\github\c-sharp-course\Week11\Week11\obj\Debug\Week11.csprojResolveAssemblyReference.cache
+E:\github\c-sharp-course\Week11\Week11\obj\Debug\Week11.Form1.resources
+E:\github\c-sharp-course\Week11\Week11\obj\Debug\Week11.Properties.Resources.resources
+E:\github\c-sharp-course\Week11\Week11\obj\Debug\Week11.csproj.GenerateResource.Cache
+E:\github\c-sharp-course\Week11\Week11\obj\Debug\Week11.exe
+E:\github\c-sharp-course\Week11\Week11\obj\Debug\Week11.pdb

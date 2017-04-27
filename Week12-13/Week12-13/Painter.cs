@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace Week12_13
@@ -18,6 +16,8 @@ namespace Week12_13
         private Pen Pen;
         public Color color;
         public Queue<Point> queue = new Queue<Point>();
+        private int[,] usedFill = new int[2000, 2000];
+        private int fillTimer = 1;
 
         public void setColor(Color c)
         {
@@ -84,6 +84,8 @@ namespace Week12_13
         {
             queue.Enqueue(new Point(x, y));
             Color inBegColor = bitmap.GetPixel(x, y);
+            // ++fillTimer;
+            // GP.Reset();
             while (queue.Count > 0) // BFS
             {
                 Point v = queue.Dequeue();
@@ -92,6 +94,7 @@ namespace Week12_13
                 Check(v.X, v.Y-1, inBegColor);
                 Check(v.X, v.Y+1, inBegColor);
             }
+            // G.DrawPath(Pen, GP);
             pictureBox.Refresh();
         }
 
@@ -100,6 +103,8 @@ namespace Week12_13
             if (x <= 0 || y <= 0 || x >= pictureBox.Width || y >= pictureBox.Height) return;
             if (getPixel != bitmap.GetPixel(x, y)) return;
             bitmap.SetPixel(x, y, color);
+            // usedFill[x, y] = fillTimer;
+            // GP.AddLine(x, y, x, y);
             queue.Enqueue(new Point(x, y));
         }
 
@@ -109,16 +114,6 @@ namespace Week12_13
             if (GP != null)
                 G.DrawPath(Pen, GP);
             pictureBox.Refresh();
-        }
-
-        private static class Utils
-        {
-            public static void Swap<T>(ref T lhs, ref T rhs)
-            {
-                T t = lhs;
-                lhs = rhs;
-                rhs = t;
-            }
         }
 
         public void MouseMove(MouseEventArgs e)
@@ -175,8 +170,6 @@ namespace Week12_13
                 case Operation.Line:
                     GP.Reset();
                     GP.AddLine(prevPoint, e.Location);
-                    break;
-                case Operation.Fill:
                     break;
                 case Operation.Ellipse:
                     GP.Reset();
